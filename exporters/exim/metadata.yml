@@ -1,6 +1,9 @@
 ---
 repository: gvengel/exim_exporter
-version: 1.5.0
+version: 1.6.2
 arch: ARCH
 env:
   TAGS: dummy
+  GOPATH: "/tmp/prometheus20241222-1747-nblb19"
+  CGO_ENABLED: '0'
+  PATH: "/home/runner/work/prometheus-exporters/prometheus-exporters/vendor/bundle/ruby/3.3.0/bin:/opt/hostedtoolcache/Ruby/3.3.6/x64/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/tmp/prometheus20241222-1747-nblb19/bin"
