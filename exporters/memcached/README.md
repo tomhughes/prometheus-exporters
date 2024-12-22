@@ -45,6 +45,8 @@ The exporter collects a number of statistics from the server:
 # TYPE memcached_current_connections gauge
 # HELP memcached_current_items Current number of items stored by this instance.
 # TYPE memcached_current_items gauge
+# HELP memcached_direct_reclaims_total Times worker threads had to directly reclaim or evict items.
+# TYPE memcached_direct_reclaims_total counter
 # HELP memcached_items_evicted_total Total number of valid items removed from cache to free memory for new items.
 # TYPE memcached_items_evicted_total counter
 # HELP memcached_items_reclaimed_total Total number of times an entry was stored using memory from an expired entry.
@@ -197,7 +199,7 @@ curl `localhost:9150/scrape?target=memcached-host.company.com:11211
 
 An example configuration using [prometheus-elasticache-sd](https://github.com/maxbrunet/prometheus-elasticache-sd):
 
-```
+```yaml
 scrape_configs:
   - job_name: "memcached_exporter_targets"
     file_sd_configs:
@@ -216,7 +218,7 @@ scrape_configs:
         replacement: $1
         separator: ':'
         target_label: __param_target
-      # Use Redis URL as instance label
+      # Use Memcached URL as instance label
       - source_labels: [__param_target]
         target_label: instance
       # Set exporter address
